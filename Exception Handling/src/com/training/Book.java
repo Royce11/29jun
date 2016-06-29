@@ -2,6 +2,32 @@ package com.training;
 
 public class Book {
 
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		
+		if(this == obj)
+			return true;  // if pointing to same location
+		
+		if (obj == null)
+			return false;  // Cautios property
+		
+		if(this.getClass()!= obj.getClass())   // this.getClass() is equivalent to getclass()
+			return false;     // it is checking if same class or not
+		
+		Book bk = (Book)obj;
+		return bk.bookNumber==this.bookNumber && 
+				bk.price==this.price &&
+				bk.bookName.equals(this.bookName); // this.bookname has the String(an object only) value; this is not recursion, instead it goes to StringClass
+			// TODO Auto-generated method stub
+		
+	}
+	
 	private int bookNumber;
 	public int getBookNumber() {
 		return bookNumber;
